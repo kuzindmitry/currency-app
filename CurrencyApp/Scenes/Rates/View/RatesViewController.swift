@@ -11,6 +11,8 @@ import UIKit
 class RatesViewController: UIViewController {
 
     @IBOutlet private weak var rateLabel: UILabel!
+    @IBOutlet private weak var currenciesLabel: UILabel!
+    @IBOutlet private weak var yesterdayInfoLabel: UILabel!
     
     private let viewModel = RatesViewModel()
     
@@ -28,6 +30,7 @@ class RatesViewController: UIViewController {
     
     func updateContent() {
         rateLabel.text = viewModel.rateValue
+        currenciesLabel.text = viewModel.currenciesValue
     }
 
 }

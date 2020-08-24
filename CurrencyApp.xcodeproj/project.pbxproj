@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		04184C8024F3FB55002CCD7A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04184C7F24F3FB55002CCD7A /* UIViewController+Extension.swift */; };
+		04529B2224F40534007C8036 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04529B1F24F40534007C8036 /* Lato-Black.ttf */; };
+		04529B2324F40534007C8036 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04529B2024F40534007C8036 /* Lato-Bold.ttf */; };
+		04529B2424F40534007C8036 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04529B2124F40534007C8036 /* Lato-Regular.ttf */; };
+		04529B2724F405B0007C8036 /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04529B2624F405B0007C8036 /* Lato-MediumItalic.ttf */; };
 		04A4776B24F3DDF800D470DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4776A24F3DDF800D470DF /* AppDelegate.swift */; };
 		04A4776F24F3DDF800D470DF /* RatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4776E24F3DDF800D470DF /* RatesViewController.swift */; };
 		04A4777224F3DDF800D470DF /* Rates.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A4777024F3DDF800D470DF /* Rates.storyboard */; };
@@ -26,6 +30,10 @@
 
 /* Begin PBXFileReference section */
 		04184C7F24F3FB55002CCD7A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		04529B1F24F40534007C8036 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		04529B2024F40534007C8036 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		04529B2124F40534007C8036 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		04529B2624F405B0007C8036 /* Lato-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-MediumItalic.ttf"; sourceTree = "<group>"; };
 		04A4776724F3DDF800D470DF /* CurrencyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A4776A24F3DDF800D470DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04A4776E24F3DDF800D470DF /* RatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesViewController.swift; sourceTree = "<group>"; };
@@ -66,9 +74,21 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		04529B2524F4053C007C8036 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				04529B1F24F40534007C8036 /* Lato-Black.ttf */,
+				04529B2024F40534007C8036 /* Lato-Bold.ttf */,
+				04529B2124F40534007C8036 /* Lato-Regular.ttf */,
+				04529B2624F405B0007C8036 /* Lato-MediumItalic.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		04A4775E24F3DDF800D470DF = {
 			isa = PBXGroup;
 			children = (
+				04529B2524F4053C007C8036 /* Fonts */,
 				04A4776924F3DDF800D470DF /* CurrencyApp */,
 				04A4776824F3DDF800D470DF /* Products */,
 				7ABC74C9F6E133E33DEEE4DA /* Pods */,
@@ -263,7 +283,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04529B2224F40534007C8036 /* Lato-Black.ttf in Resources */,
+				04529B2424F40534007C8036 /* Lato-Regular.ttf in Resources */,
+				04529B2324F40534007C8036 /* Lato-Bold.ttf in Resources */,
 				04A4777724F3DDFB00D470DF /* LaunchScreen.storyboard in Resources */,
+				04529B2724F405B0007C8036 /* Lato-MediumItalic.ttf in Resources */,
 				04A4777424F3DDFB00D470DF /* Assets.xcassets in Resources */,
 				04A4777224F3DDF800D470DF /* Rates.storyboard in Resources */,
 			);

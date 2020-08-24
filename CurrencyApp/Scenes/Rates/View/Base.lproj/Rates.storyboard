@@ -7,6 +7,17 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-MediumItalic.ttf">
+            <string>Lato-MediumItalic</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Rates View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -16,22 +27,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50d-g2-cV5">
-                                <rect key="frame" x="186" y="437.5" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="uYT-wj-WhL">
+                                <rect key="frame" x="20" y="338" width="374" height="220.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50d-g2-cV5">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="20"/>
+                                        <color key="textColor" red="0.24705882352941178" green="0.27843137254901962" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYj-nW-05b">
+                                        <rect key="frame" x="0.0" y="44" width="374" height="96"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="80"/>
+                                        <color key="textColor" red="0.2470588235" green="0.2784313725" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4K-bb-YJP">
+                                        <rect key="frame" x="0.0" y="160" width="374" height="60.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0f-i0-pcy">
+                                                <rect key="frame" x="87" y="0.0" width="200" height="60.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="OVT-Kq-1Bn"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Lato-MediumItalic" family="Lato" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="n0f-i0-pcy" secondAttribute="bottom" id="La1-Cn-CIy"/>
+                                            <constraint firstItem="n0f-i0-pcy" firstAttribute="centerX" secondItem="a4K-bb-YJP" secondAttribute="centerX" id="YwW-I2-GVw"/>
+                                            <constraint firstItem="n0f-i0-pcy" firstAttribute="top" secondItem="a4K-bb-YJP" secondAttribute="top" id="c4Q-bG-njI"/>
+                                            <constraint firstItem="n0f-i0-pcy" firstAttribute="centerY" secondItem="a4K-bb-YJP" secondAttribute="centerY" id="qGz-vA-OeJ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="50d-g2-cV5" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Fg1-MG-mDC"/>
-                            <constraint firstItem="50d-g2-cV5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="e7x-KX-8RB"/>
+                            <constraint firstItem="uYT-wj-WhL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="CBi-Zu-Bgb"/>
+                            <constraint firstItem="uYT-wj-WhL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="hLE-l1-SFr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uYT-wj-WhL" secondAttribute="trailing" constant="20" id="suV-cA-6Kb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="rateLabel" destination="50d-g2-cV5" id="Snn-86-FMT"/>
+                        <outlet property="currenciesLabel" destination="50d-g2-cV5" id="Xbf-qp-MZ0"/>
+                        <outlet property="rateLabel" destination="rYj-nW-05b" id="bRc-aa-ngk"/>
+                        <outlet property="yesterdayInfoLabel" destination="n0f-i0-pcy" id="hdP-hK-L7H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

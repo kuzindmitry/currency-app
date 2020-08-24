@@ -12,7 +12,7 @@ class RatesViewModel {
     
     private var latestRates: LatestRatesResponse?
     private var base: Currency = .EUR
-    private var fromCurrency: Currency = .USD
+    private var fromCurrency: Currency = .EUR
     private var toCurrency: Currency = .RUB
     private let networkService = RatesNetworkService()
     var updateHandler: ((Error?) -> Void)?
@@ -40,6 +40,10 @@ class RatesViewModel {
         numberFormatter.numberStyle = .decimal
         numberFormatter.maximumFractionDigits = 4
         return numberFormatter.string(from: NSNumber(value: rate))
+    }
+    
+    var currenciesValue: String? {
+        return "\(fromCurrency.rawValue) → \(toCurrency.rawValue)"
     }
     
 }

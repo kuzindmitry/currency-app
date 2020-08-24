@@ -53,8 +53,11 @@ struct RatesResponse: Decodable {
 struct LatestRatesParameters: APIParametersProtocol {
     
     let base: Currency
+    let date: Date = Date()
     
     func convertToDictionary() -> [String : Any] {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-"
         return ["base": base.rawValue]
     }
 }
