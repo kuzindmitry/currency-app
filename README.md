@@ -1,11 +1,6 @@
 # Currency Rates App
 ----------------
 
-###  Wireguard reference
-
-Project is built upon official xode project of wireguard client.
-Sample iOS/macOS project sources are [here](https://github.com/WireGuard/wireguard-apple)
-
 ###  Prerequisites 
 
 - You need [CocoaPods](https://guides.cocoapods.org/using/getting-started.html#installation) installed
