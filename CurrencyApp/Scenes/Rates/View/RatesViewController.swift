@@ -15,13 +15,16 @@ class RatesViewController: UIViewController {
     @IBOutlet private weak var yesterdayInfoLabel: UILabel!
     @IBOutlet private weak var updatedLabel: UILabel!
     @IBOutlet private weak var currencyListView: CurrencyListView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
     private let viewModel = RatesViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        currencyListView.delegate = self
         viewModel.updateHandler = { [weak self] error in
+            self?.activityIndicator.stopAnimating()
             if let error = error {
                 self?.display(error: error)
             } else {
@@ -38,8 +41,18 @@ class RatesViewController: UIViewController {
     }
     
     @IBAction private func listTouched() {
+        viewModel.updateCurrencies(for: currencyListView)
         currencyListView.show()
     }
 
 }
 
+// MARK: - CurrencyListViewDelegate
+extension RatesViewController: CurrencyListViewDelegate {
+    
+    func currencyListView(_ view: CurrencyListView, didSelectVariant variant: CurrencyVariant) {
+        viewModel.selectCurrencies(variant: variant)
+        view.hide()
+    }
+    
+}

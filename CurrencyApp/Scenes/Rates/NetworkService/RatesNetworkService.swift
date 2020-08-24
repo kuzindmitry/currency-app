@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias CurrencyVariant = (from: Currency, to: Currency, title: String)
+
 enum Currency: String, CaseIterable {
     case USD
     case EUR
@@ -21,15 +23,15 @@ enum Currency: String, CaseIterable {
         }
     }
     
-    static var variants: [String] {
-        var results: [String] = []
+    static var variants: [CurrencyVariant] {
+        var results: [CurrencyVariant] = []
         for currency in Currency.allCases {
             var cases = Currency.allCases
             if let index = cases.firstIndex(of: currency) {
                 cases.remove(at: index)
             }
             cases.forEach {
-                results.append(currency.rawValue + " → " + $0.rawValue)
+                results.append((from: currency, to: $0, title: currency.rawValue + " → " + $0.rawValue))
             }
         }
         return results

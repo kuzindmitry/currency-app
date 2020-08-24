@@ -13,8 +13,18 @@ class RatesViewModel {
     private var latestRates: LatestRatesResponse?
     private var yesterdayRates: LatestRatesResponse?
     private var base: Currency = .EUR
-    private var fromCurrency: Currency = .EUR
-    private var toCurrency: Currency = .RUB
+    private var fromCurrency: Currency {
+        get {
+            return Currency(rawValue: UserDefaults.standard.string(forKey: #function) ?? "") ?? .USD
+        }
+        set { UserDefaults.standard.set(newValue.rawValue, forKey: #function) }
+    }
+    private var toCurrency: Currency {
+        get {
+            return Currency(rawValue: UserDefaults.standard.string(forKey: #function) ?? "") ?? .EUR
+        }
+        set { UserDefaults.standard.set(newValue.rawValue, forKey: #function) }
+    }
     private let networkService = RatesNetworkService()
     private (set) var updatedDate: Date?
     var updateHandler: ((Error?) -> Void)?
@@ -22,6 +32,11 @@ class RatesViewModel {
     init() {
         fetchRates(with: base)
     }
+    
+}
+
+// MARK: - Fetch
+extension RatesViewModel {
     
     private func fetchRates(with base: Currency) {
         let parameters = LatestRatesParameters(base: base)
@@ -40,7 +55,7 @@ class RatesViewModel {
             fetchGroup.leave()
         }
         fetchGroup.enter()
-        networkService.fetchRates(with: parameters, date: Date().addDays(-10)) { [weak self] result in
+        networkService.fetchRates(with: parameters, date: Date().addDays(-1)) { [weak self] result in
             switch result {
             case let .success(response):
                 self?.yesterdayRates = response
@@ -56,11 +71,31 @@ class RatesViewModel {
         }
     }
     
+}
+
+// MARK: - Update Currency
+extension RatesViewModel {
+    
+    func updateCurrencies(for listView: CurrencyListView) {
+        listView.variant = (from: fromCurrency, to: toCurrency, title: "\(fromCurrency.rawValue) → \(toCurrency.rawValue)")
+    }
+    
+    func selectCurrencies(variant: CurrencyVariant) {
+        fromCurrency = variant.from
+        toCurrency = variant.to
+        updateHandler?(nil)
+    }
+    
+}
+
+// MARK: - Values
+extension RatesViewModel {
+    
     var rateValue: String? {
         let rate = latestRates?.rate(from: fromCurrency, to: toCurrency) ?? 0
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        numberFormatter.maximumFractionDigits = 4
+        numberFormatter.maximumFractionDigits = 3
         return numberFormatter.string(from: NSNumber(value: rate))
     }
     
@@ -78,32 +113,29 @@ class RatesViewModel {
     var rateChangeValue: NSAttributedString? {
         let todayRate = latestRates?.rate(from: fromCurrency, to: toCurrency) ?? 0
         let yesterdayRate = yesterdayRates?.rate(from: fromCurrency, to: toCurrency) ?? 0
-        let percent = ((todayRate/yesterdayRate) - 1) * 100
+        var percent = ((todayRate/yesterdayRate) - 1) * 100
         
         if percent > 0 {
-            return NSAttributedString(string: percentRateChanges(percent), attributes: [.foregroundColor: UIColor(red: 0.494, green: 0.827, blue: 0.129, alpha: 1)])
+            return NSAttributedString(string: percentRateChanges(percent, isUp: true), attributes: [.foregroundColor: UIColor(red: 0.494, green: 0.827, blue: 0.129, alpha: 1)])
         } else if percent < 0 {
-            return NSAttributedString(string: percentRateChanges(percent), attributes: [.foregroundColor: UIColor(red: 0.816, green: 0.008, blue: 0.106, alpha: 1)])
+            percent = percent * -1
+            return NSAttributedString(string: percentRateChanges(percent, isUp: false), attributes: [.foregroundColor: UIColor(red: 0.816, green: 0.008, blue: 0.106, alpha: 1)])
         }
         return nil
     }
     
-    private func percentRateChanges(_ percent: Double) -> String {
-        let count = Int(percent)
-        
-        if (Double(Int(percent)) - percent != 0) {
-            return String(format: "currency_is_up_since_yesterday_2".localized, fromCurrency.title, String(format: "%.1f", percent))
-        }
-        
+    private func percentRateChanges(_ percent: Double, isUp: Bool) -> String {
+        let count = Int(ceil(percent))
         let Y = count % 10
+        
         if (Y == 0 || (Y >= 5 && Y <= 9) || (count >= 5 && count <= 20)) {
-            return String(format: "currency_is_up_since_yesterday_0".localized, fromCurrency.title, String(format: "%.1f", percent))
+            return String(format: isUp ? "currency_is_up_since_yesterday_0".localized : "currency_fell_since_yesterday_0".localized, fromCurrency.title, "\(count)")
         }
         if (Y == 1) {
-            return String(format: "currency_is_up_since_yesterday_1".localized, fromCurrency.title, String(format: "%.1f", percent))
+            return String(format: isUp ? "currency_is_up_since_yesterday_1".localized : "currency_fell_since_yesterday_1".localized, fromCurrency.title, "\(count)")
         }
         if (Y < 5) {
-            return String(format: "currency_is_up_since_yesterday_2".localized, fromCurrency.title, String(format: "%.1f", percent))
+            return String(format: isUp ? "currency_is_up_since_yesterday_2".localized : "currency_fell_since_yesterday_2".localized, fromCurrency.title, "\(count)")
         }
         return ""
     }

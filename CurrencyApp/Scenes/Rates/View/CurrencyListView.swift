@@ -8,14 +8,20 @@
 
 import UIKit
 
+protocol CurrencyListViewDelegate: class {
+    func currencyListView(_ view: CurrencyListView, didSelectVariant variant: CurrencyVariant)
+}
+
 class CurrencyListView: UIView {
     
     @IBOutlet weak private var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak private var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak private var tableView: UITableView!
     
-    var fromCurrency: Currency!
-    var toCurrency: Currency!
-    private (set) var variants: [String] = []
+    weak var delegate: CurrencyListViewDelegate?
+    
+    var variant: CurrencyVariant!
+    private (set) var variants: [CurrencyVariant] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,6 +38,7 @@ class CurrencyListView: UIView {
     
     func show() {
         bottomConstraint.constant = 0
+        tableView.reloadData()
         isHidden = false
         UIView.animate(withDuration: 0.3) {
             self.layoutIfNeeded()
@@ -57,12 +64,18 @@ extension CurrencyListView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyItemTableCell", for: indexPath)
-        cell.textLabel?.text = variants[indexPath.row]
-        if let from = fromCurrency, let to = toCurrency {
-            cell.textLabel?.alpha = variants[indexPath.row] == "\(from.rawValue) → \(to.rawValue)" ? 1.0 : 0.7
-            cell.textLabel?.font = variants[indexPath.row] == "\(from.rawValue) → \(to.rawValue)" ? UIFont(name: "Lato-Black", size: 14) : UIFont(name: "Lato-Regular", size: 14)
+        let variant = variants[indexPath.row]
+        cell.textLabel?.text = variant.title
+        if let currentVariant = self.variant {
+            cell.textLabel?.alpha = variant.title == currentVariant.title ? 1.0 : 0.7
+            cell.textLabel?.font = variant.title == currentVariant.title ? UIFont(name: "Lato-Black", size: 14) : UIFont(name: "Lato-Regular", size: 14)
         }
+        cell.selectionStyle = .none
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.currencyListView(self, didSelectVariant: variants[indexPath.row])
     }
     
 }
