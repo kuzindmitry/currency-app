@@ -13,6 +13,8 @@ class RatesViewController: UIViewController {
     @IBOutlet private weak var rateLabel: UILabel!
     @IBOutlet private weak var currenciesLabel: UILabel!
     @IBOutlet private weak var yesterdayInfoLabel: UILabel!
+    @IBOutlet private weak var updatedLabel: UILabel!
+    @IBOutlet private weak var currencyListView: CurrencyListView!
     
     private let viewModel = RatesViewModel()
     
@@ -31,6 +33,12 @@ class RatesViewController: UIViewController {
     func updateContent() {
         rateLabel.text = viewModel.rateValue
         currenciesLabel.text = viewModel.currenciesValue
+        yesterdayInfoLabel.attributedText = viewModel.rateChangeValue
+        updatedLabel.text = viewModel.updateValue
+    }
+    
+    @IBAction private func listTouched() {
+        currencyListView.show()
     }
 
 }

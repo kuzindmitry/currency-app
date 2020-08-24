@@ -12,16 +12,21 @@ protocol EndPointProtocol {
     var url: URL? { get }
 }
 
-enum EndPoint: String, EndPointProtocol {
-
-    case latest = "/latest"
+extension EndPointProtocol {
     
     var host: String {
         return "https://api.exchangeratesapi.io"
     }
     
+}
+
+struct DateEndPoint: EndPointProtocol {
+    let date: Date
+    
     var url: URL? {
-        return URL(string: host + rawValue)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return URL(string: host + "/" + dateFormatter.string(from: date))
     }
     
 }

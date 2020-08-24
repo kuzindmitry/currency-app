@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  CurrencyApp
+
+  Created by Dmitry Kuzin on 24.08.2020.
+  Copyright © 2020 Dmitry Kuzin. All rights reserved.
+*/
+
+// Currency
+"usd_title" = "dollar";
+"rub_title" = "ruble";
+"eur_title" = "euro";
+
+// Currency changes
+"currency_fell_since_yesterday_0" = "Since yesterday %@\nfell by %@ percents";
+"currency_is_up_since_yesterday_0" = "Since yesterday %@\nis up %@ percents";
+"currency_fell_since_yesterday_1" = "Since yesterday %@\nfell by %@ percent";
+"currency_is_up_since_yesterday_1" = "Since yesterday %@\nis up %@ percent";
+"currency_fell_since_yesterday_2" = "Since yesterday %@\nfell by %@ percents";
+"currency_is_up_since_yesterday_2" = "Since yesterday %@\nis up %@ percents";
+
+// UI
+"update_at" = "UPDATE AT %@";

@@ -8,10 +8,32 @@
 
 import Foundation
 
-enum Currency: String {
+enum Currency: String, CaseIterable {
     case USD
     case EUR
     case RUB
+    
+    var title: String {
+        switch self {
+        case .USD: return "usd_title".localized
+        case .EUR: return "eur_title".localized
+        case .RUB: return "rub_title".localized
+        }
+    }
+    
+    static var variants: [String] {
+        var results: [String] = []
+        for currency in Currency.allCases {
+            var cases = Currency.allCases
+            if let index = cases.firstIndex(of: currency) {
+                cases.remove(at: index)
+            }
+            cases.forEach {
+                results.append(currency.rawValue + " → " + $0.rawValue)
+            }
+        }
+        return results
+    }
 }
 
 struct LatestRatesResponse: Decodable {
@@ -57,15 +79,15 @@ struct LatestRatesParameters: APIParametersProtocol {
     
     func convertToDictionary() -> [String : Any] {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         return ["base": base.rawValue]
     }
 }
 
 class RatesNetworkService: APIClientProtocol {
     
-    func fetchLatestRates(with parameters: LatestRatesParameters, _ completion: @escaping (Result<LatestRatesResponse, Error>) -> Void) {
-        let request = RequestGenerator<LatestRatesResponse>(type: .get, encodingType: .query, endPoint: EndPoint.latest, parameters: parameters)
+    func fetchRates(with parameters: LatestRatesParameters, date: Date, _ completion: @escaping (Result<LatestRatesResponse, Error>) -> Void) {
+        let request = RequestGenerator<LatestRatesResponse>(type: .get, encodingType: .query, endPoint: DateEndPoint(date: date), parameters: parameters)
         fetch(request: request, completion: completion)
     }
     
