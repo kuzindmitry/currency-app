@@ -36,6 +36,11 @@ class CurrencyListView: UIView {
         hide()
     }
     
+}
+
+// MARK: - State
+extension CurrencyListView {
+    
     func show() {
         bottomConstraint.constant = 0
         tableView.reloadData()
@@ -56,6 +61,7 @@ class CurrencyListView: UIView {
     
 }
 
+// MARK: - Table View
 extension CurrencyListView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

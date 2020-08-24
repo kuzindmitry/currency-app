@@ -32,6 +32,11 @@ class RatesViewController: UIViewController {
             }
         }
     }
+
+}
+
+// MARK: - Content
+extension RatesViewController {
     
     func updateContent() {
         rateLabel.text = viewModel.rateValue
@@ -40,11 +45,25 @@ class RatesViewController: UIViewController {
         updatedLabel.text = viewModel.updateValue
     }
     
+}
+
+// MARK: - Actions
+extension RatesViewController {
+
     @IBAction private func listTouched() {
         viewModel.updateCurrencies(for: currencyListView)
         currencyListView.show()
     }
-
+    
+    @IBAction private func refreshTouched() {
+        activityIndicator.startAnimating()
+        viewModel.refreshData()
+    }
+    
+    @IBAction private func reverseTouched() {
+        viewModel.reverseCurrencies()
+    }
+    
 }
 
 // MARK: - CurrencyListViewDelegate

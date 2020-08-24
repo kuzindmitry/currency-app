@@ -16,6 +16,10 @@
 		04529B2C24F41058007C8036 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04529B2E24F41058007C8036 /* Localizable.strings */; };
 		04529B3324F41333007C8036 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04529B3224F41333007C8036 /* String.swift */; };
 		04529B3524F41908007C8036 /* CurrencyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04529B3424F41908007C8036 /* CurrencyListView.swift */; };
+		04529B3724F42ADC007C8036 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04529B3624F42ADC007C8036 /* Currency.swift */; };
+		04529B3924F42B37007C8036 /* DateRatesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04529B3824F42B37007C8036 /* DateRatesResponse.swift */; };
+		04529B3B24F42B49007C8036 /* RatesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04529B3A24F42B49007C8036 /* RatesResponse.swift */; };
+		04529B3E24F42B64007C8036 /* DateRatesParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04529B3D24F42B64007C8036 /* DateRatesParameters.swift */; };
 		04A4776B24F3DDF800D470DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4776A24F3DDF800D470DF /* AppDelegate.swift */; };
 		04A4776F24F3DDF800D470DF /* RatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4776E24F3DDF800D470DF /* RatesViewController.swift */; };
 		04A4777224F3DDF800D470DF /* Rates.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A4777024F3DDF800D470DF /* Rates.storyboard */; };
@@ -28,7 +32,6 @@
 		04A4779124F3E20900D470DF /* APIParametersProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4779024F3E20900D470DF /* APIParametersProtocol.swift */; };
 		04A4779324F3E21300D470DF /* APIClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4779224F3E21300D470DF /* APIClientProtocol.swift */; };
 		04A4779524F3E21E00D470DF /* RequestGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4779424F3E21E00D470DF /* RequestGenerator.swift */; };
-		04A4779724F3E22600D470DF /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4779624F3E22600D470DF /* RequestError.swift */; };
 		98B0BFE88D58F7050C45A03B /* Pods_CurrencyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D9B0748C8229A0D68D284C /* Pods_CurrencyApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +48,10 @@
 		04529B3124F41070007C8036 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		04529B3224F41333007C8036 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		04529B3424F41908007C8036 /* CurrencyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListView.swift; sourceTree = "<group>"; };
+		04529B3624F42ADC007C8036 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		04529B3824F42B37007C8036 /* DateRatesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRatesResponse.swift; sourceTree = "<group>"; };
+		04529B3A24F42B49007C8036 /* RatesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesResponse.swift; sourceTree = "<group>"; };
+		04529B3D24F42B64007C8036 /* DateRatesParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRatesParameters.swift; sourceTree = "<group>"; };
 		04A4776724F3DDF800D470DF /* CurrencyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A4776A24F3DDF800D470DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04A4776E24F3DDF800D470DF /* RatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesViewController.swift; sourceTree = "<group>"; };
@@ -59,7 +66,6 @@
 		04A4779024F3E20900D470DF /* APIParametersProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIParametersProtocol.swift; sourceTree = "<group>"; };
 		04A4779224F3E21300D470DF /* APIClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientProtocol.swift; sourceTree = "<group>"; };
 		04A4779424F3E21E00D470DF /* RequestGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestGenerator.swift; sourceTree = "<group>"; };
-		04A4779624F3E22600D470DF /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		08B4E880D95DB80F01A2FB87 /* Pods-CurrencyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyApp.debug.xcconfig"; path = "Target Support Files/Pods-CurrencyApp/Pods-CurrencyApp.debug.xcconfig"; sourceTree = "<group>"; };
 		35FB789D2005D4520E591138 /* Pods-CurrencyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyApp.release.xcconfig"; path = "Target Support Files/Pods-CurrencyApp/Pods-CurrencyApp.release.xcconfig"; sourceTree = "<group>"; };
 		B1D9B0748C8229A0D68D284C /* Pods_CurrencyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CurrencyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +102,14 @@
 				04529B2624F405B0007C8036 /* Lato-MediumItalic.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		04529B3C24F42B58007C8036 /* Parameters */ = {
+			isa = PBXGroup;
+			children = (
+				04529B3D24F42B64007C8036 /* DateRatesParameters.swift */,
+			);
+			path = Parameters;
 			sourceTree = "<group>";
 		};
 		04A4775E24F3DDF800D470DF = {
@@ -145,7 +159,6 @@
 			children = (
 				04A4778B24F3E1CA00D470DF /* Protocols */,
 				04A4779424F3E21E00D470DF /* RequestGenerator.swift */,
-				04A4779624F3E22600D470DF /* RequestError.swift */,
 			);
 			path = APIClient;
 			sourceTree = "<group>";
@@ -180,6 +193,9 @@
 		04A4778324F3E09D00D470DF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				04529B3624F42ADC007C8036 /* Currency.swift */,
+				04529B3824F42B37007C8036 /* DateRatesResponse.swift */,
+				04529B3A24F42B49007C8036 /* RatesResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -187,6 +203,7 @@
 		04A4778424F3E0A200D470DF /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
+				04529B3C24F42B58007C8036 /* Parameters */,
 				04A4778924F3E19D00D470DF /* RatesNetworkService.swift */,
 			);
 			path = NetworkService;
@@ -361,17 +378,20 @@
 			files = (
 				04A4776F24F3DDF800D470DF /* RatesViewController.swift in Sources */,
 				04529B3324F41333007C8036 /* String.swift in Sources */,
+				04529B3B24F42B49007C8036 /* RatesResponse.swift in Sources */,
 				04184C8024F3FB55002CCD7A /* UIViewController+Extension.swift in Sources */,
 				04A4778A24F3E19D00D470DF /* RatesNetworkService.swift in Sources */,
 				04A4778D24F3E1F700D470DF /* EndPointProtocol.swift in Sources */,
 				04A4779124F3E20900D470DF /* APIParametersProtocol.swift in Sources */,
+				04529B3724F42ADC007C8036 /* Currency.swift in Sources */,
 				04A4778824F3E18800D470DF /* RatesViewModel.swift in Sources */,
 				04A4779324F3E21300D470DF /* APIClientProtocol.swift in Sources */,
 				04529B2924F40A8A007C8036 /* Date.swift in Sources */,
+				04529B3E24F42B64007C8036 /* DateRatesParameters.swift in Sources */,
 				04529B3524F41908007C8036 /* CurrencyListView.swift in Sources */,
-				04A4779724F3E22600D470DF /* RequestError.swift in Sources */,
 				04A4779524F3E21E00D470DF /* RequestGenerator.swift in Sources */,
 				04A4778F24F3E20000D470DF /* APIRequestProtocol.swift in Sources */,
+				04529B3924F42B37007C8036 /* DateRatesResponse.swift in Sources */,
 				04A4776B24F3DDF800D470DF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

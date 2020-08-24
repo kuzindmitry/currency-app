@@ -71,6 +71,15 @@
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="222" id="Ost-DO-uyV"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75K-75-P7y">
+                                <rect key="frame" x="20" y="115" width="374" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="uf3-5v-sUZ"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="reverseTouched" destination="BYZ-38-t0r" eventType="touchUpInside" id="KBv-eJ-Ivh"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deq-mJ-AUL">
                                 <rect key="frame" x="193.5" y="833.5" width="27.5" height="13.5"/>
                                 <fontDescription key="fontDescription" name="Lato-Black" family="Lato" pointSize="11"/>
@@ -88,7 +97,22 @@
                                     <action selector="listTouched" destination="BYZ-38-t0r" eventType="touchUpInside" id="cd7-wb-cRJ"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="AU7-1l-JAZ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lwf-Qy-jph">
+                                <rect key="frame" x="367" y="818" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="EXL-OX-dcI"/>
+                                    <constraint firstAttribute="width" constant="44" id="NtU-rN-mVJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="tintColor" red="0.25098039220000001" green="0.2784313725" blue="0.32156862749999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" image="arrow.clockwise" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="medium"/>
+                                </state>
+                                <connections>
+                                    <action selector="refreshTouched" destination="BYZ-38-t0r" eventType="touchUpInside" id="JEo-Gg-tVJ"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="AU7-1l-JAZ">
                                 <rect key="frame" x="20" y="115" width="374" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -147,11 +171,17 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Lwf-Qy-jph" secondAttribute="bottom" id="07s-RR-Vbe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="75K-75-P7y" secondAttribute="trailing" constant="20" id="891-o7-06d"/>
+                            <constraint firstItem="75K-75-P7y" firstAttribute="centerY" secondItem="uYT-wj-WhL" secondAttribute="centerY" id="8bk-3E-Mp6"/>
+                            <constraint firstItem="75K-75-P7y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="8pm-tc-wEC"/>
                             <constraint firstItem="ifV-9W-Qog" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="F4p-Su-05v"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="990-GE-iH3" secondAttribute="bottom" id="FRa-Yy-RdC"/>
+                            <constraint firstItem="75K-75-P7y" firstAttribute="centerX" secondItem="uYT-wj-WhL" secondAttribute="centerX" id="Gll-df-zrc"/>
                             <constraint firstAttribute="bottom" secondItem="ifV-9W-Qog" secondAttribute="bottom" id="ZSM-Ow-3lH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="deq-mJ-AUL" secondAttribute="bottom" constant="15" id="Zz2-cY-xaa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AU7-1l-JAZ" secondAttribute="trailing" constant="20" id="anb-RQ-rpC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Lwf-Qy-jph" secondAttribute="trailing" constant="3" id="c1F-a2-gdw"/>
                             <constraint firstItem="990-GE-iH3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="3" id="cl3-50-3hN"/>
                             <constraint firstItem="ifV-9W-Qog" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="e6D-r5-DmS"/>
                             <constraint firstItem="uYT-wj-WhL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="hLE-l1-SFr"/>
@@ -180,6 +210,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="imgList" width="20" height="14"/>
     </resources>
 </document>

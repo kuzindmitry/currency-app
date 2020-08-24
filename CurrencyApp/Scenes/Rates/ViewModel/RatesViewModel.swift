@@ -10,8 +10,8 @@ import UIKit
 
 class RatesViewModel {
     
-    private var latestRates: LatestRatesResponse?
-    private var yesterdayRates: LatestRatesResponse?
+    private var latestRates: DateRatesResponse?
+    private var yesterdayRates: DateRatesResponse?
     private var base: Currency = .EUR
     private var fromCurrency: Currency {
         get {
@@ -39,7 +39,7 @@ class RatesViewModel {
 extension RatesViewModel {
     
     private func fetchRates(with base: Currency) {
-        let parameters = LatestRatesParameters(base: base)
+        let parameters = DateRatesParameters(base: base)
         let fetchGroup = DispatchGroup()
         
         var error: Error?
@@ -71,10 +71,22 @@ extension RatesViewModel {
         }
     }
     
+    func refreshData() {
+        fetchRates(with: base)
+    }
+    
 }
 
 // MARK: - Update Currency
 extension RatesViewModel {
+    
+    func reverseCurrencies() {
+        let from = fromCurrency
+        let to = toCurrency
+        toCurrency = from
+        fromCurrency = to
+        updateHandler?(nil)
+    }
     
     func updateCurrencies(for listView: CurrencyListView) {
         listView.variant = (from: fromCurrency, to: toCurrency, title: "\(fromCurrency.rawValue) → \(toCurrency.rawValue)")
